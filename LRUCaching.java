@@ -1,7 +1,5 @@
 import java.util.HashMap;
 
-import javax.swing.text.DefaultEditorKit.InsertBreakAction;
-
 public class LRUCaching{
     HashMap<Integer,Node>map;
     int capacity;

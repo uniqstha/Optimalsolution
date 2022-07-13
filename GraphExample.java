@@ -103,6 +103,35 @@ public class GraphExample {
         }
         return minVertex;
     }
+    public void bmf(int source, int destination){
+        boolean visited[]=new boolean[vertices];
+        QueueExample q =new QueueExample(vertices);
+        int distance[]=new int[vertices];
+        int prevPath[]=new int[vertices];
+        for(int i=0;i<vertices;i++){
+            distance[i]=Integer.MAX_VALUE;
+            prevPath[i]=-1;
+        }
+        distance[source]=0;
+        q.enqueue(source);
+        visited[source]=true;
+        while(!q.isEmpty()){
+            int u=q.dequeue();
+        for(int j=0;j<vertices;j++){
+            if(matrix[u][j]!=0 && !visited[j]){
+                int v=j;
+                int newdistance= distance[u]+1;
+                if(newdistance<distance[v]){
+                    distance[v]=newdistance;
+                    prevPath[v]=u;
+                }
+                q.enqueue(v);
+                visited[v]=true;
+            }
+        }
+        }
+        System.out.println(distance[destination]);
+    }
 
     
 
@@ -120,6 +149,7 @@ public class GraphExample {
         g.printGraph();
         g.printAdjEdges();
         g.dijkstra(0,5);
+        g.bmf(0, 5);
         
 
     }

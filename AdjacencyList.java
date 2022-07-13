@@ -60,7 +60,7 @@ public class AdjacencyList {
         }
         int count=0;
         while(!q.isEmpty()){
-            count++;
+            count=count+1;
             int x=q.dequeue();
             System.out.println(x);
             int[] list=getAdjancentNode(x);
